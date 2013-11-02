@@ -1,0 +1,38 @@
+<div class="row">
+  <form class="form-inline" role="form" method="post" action="/">
+    <div class="form-group">
+      <label class="sr-only" for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Google">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="url">URL</label>
+      <input type="url" class="form-control" id="url" name="url" placeholder="http://google.com">
+    </div>
+    <button type="submit" class="btn btn-default">Save</button>
+  </form>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Link</th>
+        <th>Short Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{^links}}
+      <tr>
+        <td>No links found</td>
+      </tr>
+      {{/links}}
+      {{#links}}
+      <tr>
+        <td>{{ name }}</td>
+        <td>{{ url }}</td>
+        <td><a href="/l/{{ _id }}" target="_blank">{{ _id }}</a></td>
+      </tr>
+      {{/links}}
+    </tbody>
+  </table>
+</div>
